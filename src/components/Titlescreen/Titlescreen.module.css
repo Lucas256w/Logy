@@ -1,0 +1,14 @@
+.titleContainer {
+  padding: 2rem 0;
+  display: flex;
+  border-bottom: 1px solid gray;
+}
+
+.titleBold,
+.titleNormal {
+  font-size: 10vw;
+}
+
+.titleBold {
+  font-weight: 600;
+}

@@ -1,0 +1,44 @@
+.contentContainer {
+  padding: 2rem 0;
+}
+
+.titleContainer > * {
+  font-size: 3rem;
+}
+
+.titleBold {
+  font-weight: 600;
+}
+
+.postsContainer {
+  margin: 2rem 0;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 1rem;
+}
+
+.postCard {
+  border-radius: 40px;
+  padding: 1rem;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.postTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.postTitle:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.postContent {
+  font-size: 1.25rem;
+}

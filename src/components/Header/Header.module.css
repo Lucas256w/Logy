@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 7rem;
+}
+
+.login,
+.signup {
+  text-decoration: none;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: inherit;
+  font-weight: 600;
+}
+
+.signup {
+  color: var(--white);
+  background-color: var(--black);
+}
