@@ -9,4 +9,10 @@ const fetchPosts = async () => {
   return data;
 };
 
-export default fetchPosts;
+const fetchPost = async (id) => {
+  const response = await fetch(`${domain}/api/posts/${id}`);
+  const data = await response.json();
+  return data;
+};
+
+export { fetchPosts, fetchPost };

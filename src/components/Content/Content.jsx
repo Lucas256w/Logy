@@ -1,6 +1,7 @@
 import styles from "./Content.module.css";
 import { useState, useEffect } from "react";
-import fetchPosts from "../../api/fetchPosts";
+import { fetchPosts } from "../../api/fetchApi";
+import { Link } from "react-router-dom";
 
 const Title = () => {
   return (
@@ -23,7 +24,6 @@ const Posts = () => {
       setLoading(true);
       try {
         const postsGotten = await fetchPosts();
-        console.log(postsGotten);
         setPosts(postsGotten);
       } catch (error) {
         console.error("fetch failed", error);
@@ -42,7 +42,9 @@ const Posts = () => {
       ) : (
         posts.map((p) => (
           <div className={styles.postCard} key={p.id}>
-            <div className={styles.postTitle}>{p.title}</div>
+            <Link to={`post/${p.id}`} className={styles.postTitle}>
+              {p.title}
+            </Link>
           </div>
         ))
       )}

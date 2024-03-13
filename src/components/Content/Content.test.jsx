@@ -1,14 +1,15 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { BrowserRouter as Router } from "react-router-dom";
 import Content, { Posts, Title } from "./Content";
-import fetchPosts from "../../api/fetchPosts";
+import { fetchPosts } from "../../api/fetchApi";
 
-vi.mock("../../api/fetchPosts"); // Mock the fetchPosts function
+vi.mock("../../api/fetchApi"); // Mock the fetchPosts function
 
 // Data to be used for mocking the fetchPosts response
 const mockPosts = [
-  { id: "1", title: "Post 1", content: "Content 1" },
-  { id: "2", title: "Post 2", content: "Content 2" },
+  { id: "1", title: "Post 1" },
+  { id: "2", title: "Post 2" },
 ];
 
 describe("Content Component Tests", () => {
@@ -31,11 +32,16 @@ describe("Content Component Tests", () => {
 
     it("renders posts correctly after fetching", async () => {
       fetchPosts.mockResolvedValue(mockPosts);
-      render(<Posts />);
+      render(
+        <Router>
+          <Posts />
+        </Router>
+      );
       await waitFor(() => {
         mockPosts.forEach((post) => {
-          expect(screen.getByText(post.title)).toBeInTheDocument();
-          expect(screen.getByText(post.content)).toBeInTheDocument();
+          expect(
+            screen.getByRole("link", { name: post.title })
+          ).toHaveAttribute("href", `/post/${post.id}`);
         });
       });
     });
