@@ -13,7 +13,6 @@ const PostContent = () => {
       setLoading(true);
       try {
         const result = await fetchPost(id);
-        console.log(result);
         setPost(result);
       } catch (error) {
         console.error("fetch failed", error);

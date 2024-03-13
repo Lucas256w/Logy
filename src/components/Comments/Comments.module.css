@@ -1,0 +1,21 @@
+.commentsContainer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid gray;
+}
+
+.commentTop {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.userName {
+  font-weight: 600;
+}
+
+.dateText {
+  font-size: 0.75rem;
+  color: gray;
+}
