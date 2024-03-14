@@ -1,26 +1,94 @@
+import { useState } from "react";
+import { postAccount } from "../../api/fetchApi";
+
 import styles from "./Form.module.css";
 
 const SignupForm = () => {
+  const [info, setInfo] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const infoHandle = (e) => {
+    const { name, value } = e.target; // Destructure name and value from the event target
+    setInfo((prevInfo) => ({
+      ...prevInfo,
+      [name]: value, // Use the input's name as the key in the info object
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the form from submitting
+
+    if (info.password !== info.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    const makeAccount = async () => {
+      const payload = {
+        username: info.username,
+        email: info.email,
+        password: info.password,
+        confirmPassword: info.confirmPassword,
+      };
+
+      try {
+        const result = await postAccount(payload);
+        alert(result.message);
+      } catch (error) {
+        console.error("fetch failed", error);
+      }
+    };
+
+    makeAccount();
+  };
+
   return (
     <div className={styles.page}>
       <div className={styles.formContainer}>
         <div className={styles.title}>Sign up</div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <label htmlFor="username">Username: </label>
-            <input type="text" name="username" />
+            <input
+              onChange={infoHandle}
+              type="text"
+              name="username"
+              value={info.username}
+              minLength={4}
+            />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="password">Email: </label>
-            <input type="email" name="password" />
+            <label htmlFor="email">Email: </label>
+            <input
+              onChange={infoHandle}
+              type="email"
+              name="email"
+              value={info.email}
+            />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="password">Password: </label>
-            <input type="password" name="password" />
+            <input
+              onChange={infoHandle}
+              type="password"
+              name="password"
+              minLength={8}
+              value={info.password}
+            />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="confirmPassword">Confirm Password: </label>
-            <input type="password" name="confirmPassword" />
+            <input
+              onChange={infoHandle}
+              type="password"
+              name="confirmPassword"
+              minLength={8}
+              value={info.confirmPassword}
+            />
           </div>
           <button type="submit">Sign up</button>
         </form>

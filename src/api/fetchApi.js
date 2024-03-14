@@ -23,4 +23,31 @@ const fetchCommnets = async (id) => {
   const data = await response.json();
   return data;
 };
-export { fetchPosts, fetchPost, fetchCommnets };
+
+// POST request to create new account
+const postAccount = async (payload) => {
+  const response = await fetch(`${domain}/api/signup`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await response.json();
+  return data;
+};
+
+// POST request to login
+const loginAccount = async (payload) => {
+  const response = await fetch(`${domain}/api/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await response.json();
+  return data;
+};
+
+export { fetchPosts, fetchPost, fetchCommnets, postAccount, loginAccount };
