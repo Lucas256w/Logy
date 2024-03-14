@@ -31,7 +31,7 @@ describe("Header component", () => {
     );
     const loginLink = screen.getByText("Log in");
     expect(loginLink).toBeInTheDocument();
-    expect(loginLink).toHaveAttribute("href", "/");
+    expect(loginLink).toHaveAttribute("href", "/log-in");
   });
 
   it("contains a signup link", () => {
@@ -42,6 +42,6 @@ describe("Header component", () => {
     );
     const signupLink = screen.getByText("Sign up");
     expect(signupLink).toBeInTheDocument();
-    expect(signupLink).toHaveAttribute("href", "/");
+    expect(signupLink).toHaveAttribute("href", "/sign-up");
   });
 });

@@ -1,0 +1,52 @@
+.page {
+  display: flex;
+
+  justify-content: center;
+}
+
+.formContainer {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.title {
+  margin: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+input {
+  border: 2px solid var(--black);
+  border-radius: 5px;
+  font-size: 1.25rem;
+}
+
+button {
+  border: none;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: inherit;
+  padding: 0.5rem;
+  border-radius: 20px;
+  width: 50%;
+  align-self: center;
+}
+
+button:hover {
+  cursor: pointer;
+}

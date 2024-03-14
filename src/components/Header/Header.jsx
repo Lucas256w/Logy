@@ -12,10 +12,10 @@ const Header = () => {
         </Link>
       </div>
       <div>
-        <Link className={styles.login} to="/">
+        <Link className={styles.login} to="/log-in">
           Log in
         </Link>
-        <Link className={styles.signup} to="/">
+        <Link className={styles.signup} to="/sign-up">
           Sign up
         </Link>
       </div>

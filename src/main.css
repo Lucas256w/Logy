@@ -30,4 +30,5 @@ body {
   padding: 1.5rem 3rem;
   font-family: "Inter", sans-serif;
   color: var(--black);
+  height: calc(100vh - 3rem);
 }
