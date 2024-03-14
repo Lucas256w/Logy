@@ -50,4 +50,24 @@ const loginAccount = async (payload) => {
   return data;
 };
 
-export { fetchPosts, fetchPost, fetchCommnets, postAccount, loginAccount };
+// POST request to auto re-login using jwt
+const reloginAccount = async (token) => {
+  const response = await fetch(`${domain}/api/re-login`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
+export {
+  fetchPosts,
+  fetchPost,
+  fetchCommnets,
+  postAccount,
+  loginAccount,
+  reloginAccount,
+};

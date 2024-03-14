@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { loginAccount } from "../../api/fetchApi";
 
 import styles from "./Form.module.css";
 
 const LoginForm = () => {
+  const { setUser } = useOutletContext();
   const [info, setInfo] = useState({
     username: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const infoHandle = (e) => {
     const { name, value } = e.target; // Destructure name and value from the event target
@@ -31,9 +35,15 @@ const LoginForm = () => {
 
         if (result.token) {
           localStorage.setItem("token", result.token);
-        }
+          setUser({
+            username: result.username,
+            id: result.id,
+          });
 
-        alert(result.message);
+          navigate("/");
+        } else {
+          alert(result.message);
+        }
       } catch (error) {
         console.error("fetch failed", error);
       }
@@ -41,6 +51,14 @@ const LoginForm = () => {
 
     lookAccount();
   };
+
+  // Redirect to homepage if already logged in
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate]);
   return (
     <div className={styles.page}>
       <div className={styles.formContainer}>

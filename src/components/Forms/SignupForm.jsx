@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { postAccount } from "../../api/fetchApi";
 
 import styles from "./Form.module.css";
@@ -10,6 +11,8 @@ const SignupForm = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const navigate = useNavigate();
 
   const infoHandle = (e) => {
     const { name, value } = e.target; // Destructure name and value from the event target
@@ -45,6 +48,13 @@ const SignupForm = () => {
 
     makeAccount();
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   return (
     <div className={styles.page}>
