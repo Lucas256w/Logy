@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { loginAccount } from "../../api/fetchApi";
+import { loginAccountAPI } from "../../api/fetchApi";
 
 import styles from "./Form.module.css";
 
@@ -24,14 +24,14 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the form from submitting
 
-    const lookAccount = async () => {
+    const loginAccount = async () => {
       const payload = {
         username: info.username,
         password: info.password,
       };
 
       try {
-        const result = await loginAccount(payload);
+        const result = await loginAccountAPI(payload);
 
         if (result.token) {
           localStorage.setItem("token", result.token);
@@ -49,7 +49,7 @@ const LoginForm = () => {
       }
     };
 
-    lookAccount();
+    loginAccount();
   };
 
   // Redirect to homepage if already logged in
@@ -67,6 +67,7 @@ const LoginForm = () => {
           <div className={styles.formGroup}>
             <label htmlFor="username">Username: </label>
             <input
+              className={styles.input}
               type="text"
               name="username"
               value={info.username}
@@ -76,13 +77,16 @@ const LoginForm = () => {
           <div className={styles.formGroup}>
             <label htmlFor="password">Password: </label>
             <input
+              className={styles.input}
               type="password"
               name="password"
               value={info.password}
               onChange={infoHandle}
             />
           </div>
-          <button type="submit">Log in</button>
+          <button className={styles.btn} type="submit">
+            Log in
+          </button>
         </form>
       </div>
     </div>

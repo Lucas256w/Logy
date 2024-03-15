@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { postAccount } from "../../api/fetchApi";
+import { makeAccountAPI } from "../../api/fetchApi";
 
 import styles from "./Form.module.css";
 
@@ -39,7 +39,7 @@ const SignupForm = () => {
       };
 
       try {
-        const result = await postAccount(payload);
+        const result = await makeAccountAPI(payload);
         alert(result.message);
       } catch (error) {
         console.error("fetch failed", error);
@@ -64,6 +64,7 @@ const SignupForm = () => {
           <div className={styles.formGroup}>
             <label htmlFor="username">Username: </label>
             <input
+              className={styles.input}
               onChange={infoHandle}
               type="text"
               name="username"
@@ -74,6 +75,7 @@ const SignupForm = () => {
           <div className={styles.formGroup}>
             <label htmlFor="email">Email: </label>
             <input
+              className={styles.input}
               onChange={infoHandle}
               type="email"
               name="email"
@@ -83,6 +85,7 @@ const SignupForm = () => {
           <div className={styles.formGroup}>
             <label htmlFor="password">Password: </label>
             <input
+              className={styles.input}
               onChange={infoHandle}
               type="password"
               name="password"
@@ -93,6 +96,7 @@ const SignupForm = () => {
           <div className={styles.formGroup}>
             <label htmlFor="confirmPassword">Confirm Password: </label>
             <input
+              className={styles.input}
               onChange={infoHandle}
               type="password"
               name="confirmPassword"

@@ -30,13 +30,13 @@ form {
   margin-bottom: 1rem;
 }
 
-input {
+.input {
   border: 2px solid var(--black);
   border-radius: 5px;
   font-size: 1.25rem;
 }
 
-button {
+.btn {
   border: none;
   background-color: var(--black);
   color: var(--white);
@@ -47,6 +47,6 @@ button {
   align-self: center;
 }
 
-button:hover {
+.btn:hover {
   cursor: pointer;
 }

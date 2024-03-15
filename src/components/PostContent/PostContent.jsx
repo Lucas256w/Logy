@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchPost } from "../../api/fetchApi";
+import { fetchPostAPI } from "../../api/fetchApi";
 import styles from "./PostContent.module.css";
 
 const PostContent = () => {
@@ -12,7 +12,7 @@ const PostContent = () => {
     const getPost = async (id) => {
       setLoading(true);
       try {
-        const result = await fetchPost(id);
+        const result = await fetchPostAPI(id);
         setPost(result);
       } catch (error) {
         console.error("fetch failed", error);

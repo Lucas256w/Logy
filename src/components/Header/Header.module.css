@@ -17,6 +17,7 @@
   color: inherit;
   font-weight: 600;
   font-family: inherit;
+  border: none;
 }
 
 .signup {
@@ -24,8 +25,13 @@
   background-color: var(--black);
 }
 
+.signup:hover {
+  cursor: pointer;
+}
+
 .rightNav {
   display: flex;
+  align-items: center;
 }
 
 .username {

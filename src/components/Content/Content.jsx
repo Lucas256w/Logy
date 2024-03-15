@@ -1,6 +1,6 @@
 import styles from "./Content.module.css";
 import { useState, useEffect } from "react";
-import { fetchPosts } from "../../api/fetchApi";
+import { fetchPostsAPI } from "../../api/fetchApi";
 import { Link } from "react-router-dom";
 
 const Title = () => {
@@ -23,7 +23,7 @@ const Posts = () => {
     const getPosts = async () => {
       setLoading(true);
       try {
-        const postsGotten = await fetchPosts();
+        const postsGotten = await fetchPostsAPI();
         setPosts(postsGotten);
       } catch (error) {
         console.error("fetch failed", error);

@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
-import { reloginAccount } from "./api/fetchApi";
+import { reloginAccountAPI } from "./api/fetchApi";
 import { Outlet } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const reLogin = async () => {
+    const reloginAccount = async () => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          const result = await reloginAccount(token);
+          const result = await reloginAccountAPI(token);
           setUser(result);
         } catch (error) {
           console.error("fetch failed", error);
         }
       }
     };
-    reLogin();
+    reloginAccount();
   }, []);
 
   return (

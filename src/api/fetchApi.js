@@ -4,28 +4,28 @@ const domain =
     : import.meta.env.VITE_DEV_API;
 
 // GET all posts for homepage
-const fetchPosts = async () => {
+const fetchPostsAPI = async () => {
   const response = await fetch(`${domain}/api/posts`);
   const data = await response.json();
   return data;
 };
 
 // GET post content for individual post page
-const fetchPost = async (id) => {
+const fetchPostAPI = async (id) => {
   const response = await fetch(`${domain}/api/posts/${id}`);
   const data = await response.json();
   return data;
 };
 
 // GET post commetns for infividual post page
-const fetchCommnets = async (id) => {
+const fetchCommnetsAPI = async (id) => {
   const response = await fetch(`${domain}/api/comments/${id}`);
   const data = await response.json();
   return data;
 };
 
 // POST request to create new account
-const postAccount = async (payload) => {
+const makeAccountAPI = async (payload) => {
   const response = await fetch(`${domain}/api/signup`, {
     method: "POST",
     headers: {
@@ -38,7 +38,7 @@ const postAccount = async (payload) => {
 };
 
 // POST request to login
-const loginAccount = async (payload) => {
+const loginAccountAPI = async (payload) => {
   const response = await fetch(`${domain}/api/login`, {
     method: "POST",
     headers: {
@@ -51,7 +51,7 @@ const loginAccount = async (payload) => {
 };
 
 // POST request to auto re-login using jwt
-const reloginAccount = async (token) => {
+const reloginAccountAPI = async (token) => {
   const response = await fetch(`${domain}/api/re-login`, {
     method: "GET",
     headers: {
@@ -63,11 +63,26 @@ const reloginAccount = async (token) => {
   return data;
 };
 
+// POST request to post a comment on a post
+const postCommentAPI = async (payload, token) => {
+  const response = await fetch(`${domain}/api/comments/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await response.json();
+  return data;
+};
+
 export {
-  fetchPosts,
-  fetchPost,
-  fetchCommnets,
-  postAccount,
-  loginAccount,
-  reloginAccount,
+  fetchPostsAPI,
+  fetchPostAPI,
+  fetchCommnetsAPI,
+  makeAccountAPI,
+  loginAccountAPI,
+  reloginAccountAPI,
+  postCommentAPI,
 };
