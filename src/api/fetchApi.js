@@ -18,7 +18,7 @@ const fetchPostAPI = async (id) => {
 };
 
 // GET post commetns for infividual post page
-const fetchCommnetsAPI = async (id) => {
+const fetchCommentsAPI = async (id) => {
   const response = await fetch(`${domain}/api/comments/${id}`);
   const data = await response.json();
   return data;
@@ -80,7 +80,7 @@ const postCommentAPI = async (payload, token) => {
 export {
   fetchPostsAPI,
   fetchPostAPI,
-  fetchCommnetsAPI,
+  fetchCommentsAPI,
   makeAccountAPI,
   loginAccountAPI,
   reloginAccountAPI,

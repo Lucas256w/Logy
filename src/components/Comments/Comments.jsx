@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
-import { fetchCommnetsAPI, postCommentAPI } from "../../api/fetchApi";
+import { fetchCommentsAPI, postCommentAPI } from "../../api/fetchApi";
 import styles from "./Comments.module.css";
 
 const Comments = () => {
@@ -14,7 +14,7 @@ const Comments = () => {
     const getComments = async (id) => {
       setLoading(true);
       try {
-        const result = await fetchCommnetsAPI(id);
+        const result = await fetchCommentsAPI(id);
         setComments(result);
       } catch (error) {
         console.error("fetch failed", error);
