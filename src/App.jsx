@@ -5,6 +5,8 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
+  console.log(import.meta.env.VITE_MODE);
+  console.log(import.meta.env.VITE_PROD_API);
 
   useEffect(() => {
     const reloginAccount = async () => {
