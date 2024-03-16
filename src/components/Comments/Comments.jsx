@@ -79,7 +79,7 @@ const Comments = () => {
               </button>
             </div>
           ) : (
-            <div>Login to comment</div>
+            <div className={styles.strongTitle}>Login to comment</div>
           )}
           {comments.map((comment) => (
             <div className={styles.commentBox} key={comment.id}>

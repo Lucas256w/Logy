@@ -32,7 +32,17 @@ const PostContent = () => {
         <div className={styles.postContainer}>
           <div className={styles.title}>{post.title}</div>
           <div className={styles.date}>{post.date}</div>
-          <div className={styles.content}>{post.content}</div>
+          <div className={styles.content}>
+            {post.content ? (
+              post.content.split("\n\n").map((paragraph, index) => (
+                <div key={index} className={styles.paragraph}>
+                  <p>{paragraph}</p>
+                </div>
+              ))
+            ) : (
+              <p>No content available.</p>
+            )}
+          </div>
         </div>
       )}
     </div>

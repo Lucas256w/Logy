@@ -1,6 +1,6 @@
 .commentsContainer {
   margin-top: 2rem;
-  padding-top: 2rem;
+  padding: 2rem 0;
   border-top: 1px solid gray;
 }
 
@@ -46,4 +46,8 @@
 
 .btn:hover {
   cursor: pointer;
+}
+
+.strongTitle {
+  font-weight: 600;
 }
