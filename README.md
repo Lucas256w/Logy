@@ -2,7 +2,8 @@
 ### API: [repo](https://github.com/Lucas256w/Logy-Backend)
 ### CMS: [repo](https://github.com/Lucas256w/Logy-CMS)
 
-<img width="800" alt="image" src="https://github.com/Lucas256w/Logy/assets/112456075/fff91e68-169a-4358-a11c-36ee01e40179">
+<img width="800" alt="image" src="https://github.com/Lucas256w/Logy/assets/112456075/c5786675-0a27-4b4c-a06e-934c98e966ad">
+
 
 
 
