@@ -18,11 +18,16 @@
   font-weight: 600;
   font-family: inherit;
   border: none;
+  font-size: 1rem;
 }
 
 .signup {
   color: var(--white);
   background-color: var(--black);
+}
+
+.login {
+  border: 2px solid var(--black);
 }
 
 .signup:hover {
@@ -32,8 +37,27 @@
 .rightNav {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .username {
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .rightNav {
+    margin-top: 1rem;
+  }
+
+  .login,
+  .signup {
+    margin: 0.5rem 0;
+  }
+
+  .btnsContainer {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    gap: 1rem;
+  }
 }

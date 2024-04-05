@@ -14,7 +14,8 @@
   margin: 2rem 0;
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
   gap: 1.5rem 1rem;
 }
 
@@ -44,4 +45,24 @@
 
 .postContent {
   font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .postCard {
+    padding: 2rem;
+  }
+
+  .postTitle {
+    font-size: 1.5rem;
+  }
+
+  .postContent {
+    font-size: 1rem;
+  }
+
+  .titleBold,
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
 }

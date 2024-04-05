@@ -12,3 +12,11 @@
 .titleBold {
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .titleBold,
+  .titleNormal {
+    text-align: center;
+    font-size: 2rem;
+  }
+}

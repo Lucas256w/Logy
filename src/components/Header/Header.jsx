@@ -26,12 +26,12 @@ const Header = ({ user, setUser }) => {
           </button>
         </div>
       ) : (
-        <div>
+        <div className={styles.btnsContainer}>
           <Link className={styles.login} to="/log-in">
-            Log in
+            Login
           </Link>
           <Link className={styles.signup} to="/sign-up">
-            Sign up
+            Signup
           </Link>
         </div>
       )}

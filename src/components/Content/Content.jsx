@@ -7,7 +7,7 @@ const Title = () => {
   return (
     <>
       <div className={styles.titleContainer}>
-        <div>See what I&apos;ve</div>
+        <div className={styles.title}>See what I&apos;ve</div>
         <div className={styles.titleBold}>written lately</div>
       </div>
     </>
