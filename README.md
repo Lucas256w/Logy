@@ -1,23 +1,46 @@
 # Logy
-### API: [repo](https://github.com/Lucas256w/Logy-Backend)
-### CMS: [repo](https://github.com/Lucas256w/Logy-CMS)
 
-<img width="800" alt="image" src="https://github.com/Lucas256w/Logy/assets/112456075/c5786675-0a27-4b4c-a06e-934c98e966ad">
+Live: https://logy-blog.netlify.app/
+
+API (Backend): https://github.com/Lucas256w/Logy-Backend
+
+CMS (Content Management System): https://github.com/Lucas256w/Logy-CMS
 
 
+# About
 
-
-# **:point_right: See it live [here](https://logy-blog.netlify.app/)**
-
-Logy is a personal blog website where anyone can come and see posts but only logged-in users can write comments on post. The application consist of 2 frontend websites that connects to 1 API server to receive and use data. Logy is available to the public while CMS site is only accessible to me
+Logy is a personal blog site where users can come check out what I wrote and comment on my posts. I have designated author page for myself in order to manage (create, update, delete) these posts.
 
 I created this project mainly to practice fullstack development by implementing a RESTful API for multiple client side applications while using JWT for authorization.
 
 ## Features
 
-- Published posts are available to all users, unpublished posts are only available on the CMS site.
-- Only users can comment on posts.
-- Only CMS site allows CRUD operations on posts.
+- Account creation with username, email, and password.
+- All users can view posts
+- Only registered users and make comments on posts
+- Seperate author page for publishing, editing, deleting, and unpublishing post.
+
+## Technology Features
+### Frontend
+- Made use of hooks such as useState, useEffect.
+- React router to navigate through pages.
+- Async and await to fetch data.
+
+### Backend
+- JWT for authorization.
+- Model-view-controller (MVC) architecture design pattern to organize logic.
+- Validator to validate requests.
+- Bcrypt to secure password.
+
+<h1>Screenshots</h1>
+
+<h2>Desktop</h2>
+<img width="800" alt="image" src="https://github.com/Lucas256w/Logy/assets/112456075/c5786675-0a27-4b4c-a06e-934c98e966ad">
+
+<h2>Mobile</h2>
+<img width="400" alt="image" src="https://github.com/Lucas256w/Logy/assets/112456075/b5d0729c-5c61-4163-85f9-c5792ffef289">
+
+
 
 ## Run It Locally
 
