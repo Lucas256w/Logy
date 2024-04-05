@@ -24,6 +24,7 @@ I created this project mainly to practice fullstack development by implementing 
 ### Prerequisites
 
 - You'll need to install the Backend API repository and CMS repository along with this one to have access to all features
+- You'll need to setup a MongoDB databse
 
 ### Cloning the repository
 
